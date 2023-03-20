@@ -12,6 +12,15 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 })
 
+app.get('/imc/table', (req, res) => {
+  res.send(JSON.stringify({
+    'magreza': 0.00,
+    'normal': 18.50,
+    'sobrepeso': 24.9,
+    'obesidade': 29.9
+  }))
+});
+
 app.post("/imc/calculate", (req, res) => {
     const {
         height, 

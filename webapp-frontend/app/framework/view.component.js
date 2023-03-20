@@ -1,10 +1,8 @@
 export class ViewComponent {
-    /**
-     * 
-     * @param {*} selector : deve ser um seletorCSS retornando apenas um elemento do DOM
-     */
-    constructor(selector) {
-        this.element = document.querySelector(selector);
+
+    constructor() {
+        this.elementTagName = this.__proto__.constructor.name;
+        this.element = document.querySelector(this.elementTagName);
         this.state = {};
         this.paint();
     }
