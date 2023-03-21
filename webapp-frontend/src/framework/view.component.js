@@ -1,8 +1,7 @@
 export class ViewComponent {
 
-    constructor() {
-        this.elementTagName = this.__proto__.constructor.name;
-        this.element = document.querySelector(this.elementTagName);
+    constructor(selector) {
+        this.element = document.querySelector(selector);
         this.state = {};
         this.paint();
     }

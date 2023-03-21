@@ -2,6 +2,9 @@ import { ViewComponent } from "../framework/view.component.js";
 
 
 export class ImcTableViewComponent extends ViewComponent {
+    constructor() {
+        super("ImcTableViewComponent");
+    }
     render() {
         let templateStr = `
             <table>

@@ -20,6 +20,7 @@ export function calculate(view) {
 }
 
 export function initialize() {
+    console.log("initializing ...");
     const button = document.querySelector("button.action");
     button.addEventListener("click", debounce(calculate(new ImcDataViewComponent())));
     new ImcTableController(new ImcTableViewComponent())
