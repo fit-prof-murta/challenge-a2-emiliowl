@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const plugins = [new MiniCssExtractPlugin()];
 
@@ -23,10 +24,14 @@ const config = {
                 use: {loader: 'babel-loader'}
             },
             {
-                test: /\.css/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                test: /\.s[ac]ss/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             }
         ]
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new CssMinimizerPlugin()]
     }
 };
 
