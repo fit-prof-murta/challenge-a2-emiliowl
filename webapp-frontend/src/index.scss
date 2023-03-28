@@ -1,3 +1,4 @@
+@import 'themes';
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
     .container {
@@ -44,12 +45,21 @@
   .data .form button {
     margin-top: 2em;
     display: inline;
-    background-color: #3B64CE;
-    border: 1px solid #3B64CE;
     color: #FFF;
     min-width: 50px;
     text-align: center;
     box-shadow: 2px 2px 2px #000000;
+    @include blue-theme(true);
+  }
+
+  .data .form button.green {
+    margin-top: 2em;
+    display: inline;
+    color: #FFF;
+    min-width: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 2px #000000;
+    @include blue-theme(false);
   }
   
   .data .form button:hover {
@@ -61,5 +71,18 @@
     background-color: #504869;
     border: 1px solid #504869;
     box-shadow: 1.5px 1.5px 2px #808080;
+  }
+
+  table {
+    border: 1px solid black;
+    margin-bottom: 50px;
+  }
+
+  tr {
+    border: 1px solid black;
+  }
+
+  td {
+    border: 1px solid black;
   }
   
