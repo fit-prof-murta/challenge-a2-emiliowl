@@ -1,7 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const plugins = [];
+const plugins = [new MiniCssExtractPlugin()];
 
 const config = {
     entry: "./src/index.js",
@@ -13,8 +14,21 @@ const config = {
         contentBase: path.join(__dirname, "/dist/"),
         compress: true,
         port: 5500
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js/,
+                exclude: /node_modules/,
+                use: {loader: 'babel-loader'}
+            },
+            {
+                test: /\.css/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
+            }
+        ]
     }
-}
+};
 
 module.exports = (env, argv) => {
     if (argv.mode === "production") {
