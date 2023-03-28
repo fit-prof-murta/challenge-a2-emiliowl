@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 export class ViewComponent {
 
     constructor(selector) {
@@ -15,7 +18,12 @@ export class ViewComponent {
     }
 
     paint() {
-        this.element.innerHTML = this.render();
+        const reactElement = React.createElement(
+            'div',
+            { id: 'view-component', className: 'any-div' },
+            this.render()
+        );
+        ReactDOM.render(reactElement, this.element);
     }
 
     render() {

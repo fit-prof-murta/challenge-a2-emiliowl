@@ -1,3 +1,4 @@
+import "react";
 import { ViewComponent } from "../framework/view.component.js";
 
 
