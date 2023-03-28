@@ -7,6 +7,7 @@ const plugins = [new MiniCssExtractPlugin()];
 
 const config = {
     entry: "./src/index.js",
+    target: ["web", "es5"],
     output: {
         filename: "webapp.dist.js",
         path: path.resolve(__dirname, "dist")
@@ -20,8 +21,13 @@ const config = {
         rules: [
             {
                 test: /\.js/,
-                exclude: /node_modules/,
-                use: {loader: 'babel-loader'}
+                include: [
+                    path.resolve(__dirname, "src"),
+                ],
+                use: {
+                    loader: 'babel-loader',
+                    options: {}
+                },
             },
             {
                 test: /\.s[ac]ss/,
